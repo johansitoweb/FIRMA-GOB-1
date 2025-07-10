@@ -1,0 +1,808 @@
+:root {
+    /* Color Variables */
+    --white-bg: #FFFFFF;
+    --dark-text: #333333;
+    --blue-navbar-bg: #0C2E5D;
+    --blue-links: #007bff; /* Standard Bootstrap blue */
+    --red-button: #E30000;
+    --light-grey-border: #e0e0e0;
+    --white-text: #FFFFFF;
+    --section-subtitle-color: #666666;
+    --green-check: #4CAF50;
+    --card-border-color: #E6E6E6;
+    --pagination-bg: #F8F9FA;
+    --footer-bottom-bg: #F8F9FA;
+    --light-blue-bg-info: #EBF5FF;
+    --light-border-dark: #1E4675; /* Used for border in dark blue sections */
+    --light-green-bg: #E6F7E6;
+    --dark-blue-footer: #0C2E5D;
+    --medium-grey-footer-text: #bbbbbb;
+    --blue-hover: #0056b3; /* Darker blue for hover states */
+    --card-bg-light: #F8F9FA; /* Light background for the accreditation cards */
+    /* --blue-section-bg: #0C2E5D; /* Original dark blue for the "Where to include Firma Gob" section */
+    --light-blue-section-bg: #1B57A2; /* Nuevo color azul más claro */ /* */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: #f8f9fa; /* Consistent background */
+}
+
+/* Custom Container for consistent padding and max-width */
+.custom-container {
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* --- Navbar Styles --- */
+.navbar {
+    border-bottom: 1px solid var(--light-grey-border);
+}
+
+/* Top Navbar */
+.top-navbar {
+    background-color: var(--white-bg);
+    padding: 10px 0;
+    font-size: 0.85em;
+    min-height: 50px; /* Ensure a consistent height */
+}
+
+.top-navbar .container-fluid {
+    justify-content: flex-start;
+}
+
+.top-navbar .flag-icon {
+    width: 20px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.top-navbar .navbar-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--dark-text) !important; /* Ensure text color */
+}
+
+.top-navbar .how-we-know {
+    color: var(--blue-links);
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 0.9em;
+}
+.top-navbar .how-we-know i {
+    font-size: 0.7em;
+}
+
+/* Main Navbar */
+.main-navbar {
+    background-color: var(--blue-navbar-bg);
+    padding: 15px 0;
+    border-bottom: none;
+    min-height: 80px; /* Adjust height as needed */
+}
+
+.main-navbar .navbar-brand {
+    padding: 0;
+    margin-right: 0;
+}
+
+.main-navbar .firma-gob-logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.main-navbar .ogtic-logo {
+    max-width: 80px;
+    height: auto;
+}
+
+.main-navbar .search-bar-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.main-navbar .search-bar {
+    background-color: var(--white-bg);
+    border-radius: 27px;
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+    margin-left: 20px; 
+    margin-right: 20px; 
+}
+
+.main-navbar .search-bar .form-control {
+    border: none;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    outline: none;
+    box-shadow: none;
+    border-radius: 27px;
+}
+
+.main-navbar .search-bar .search-btn {
+    background-color: var(--red-button);
+    border: none;
+    color: var(--white-text);
+    padding: 8px 15px;
+    font-size: 1em;
+    border-radius:50px ; /* Rounded right side */
+    transition: background-color 0.3s ease;
+}
+
+
+
+.main-navbar .nav-icon-link {
+    color: var(--white-text);
+    font-size: 1.3em;
+    text-decoration: none;
+    padding: 0 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Vertical divider between icons */
+.main-navbar .nav-icon-link + .nav-icon-link::before {
+    content: '';
+    position: absolute;
+    left: -5px; /* Adjust to position correctly between icons */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.main-navbar .contact-button {
+    background-color: var(--white-bg);
+    color: var(--blue-links);
+    padding: 8px 15px;
+    border-radius: 27px;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    margin-left: 10px; /* Space from last icon */
+}
+
+/* Vertical divider before contact button */
+.main-navbar .contact-button::before {
+    content: '';
+    position: absolute;
+    left: -5px; /* Adjust to position correctly */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.main-navbar .contact-button:hover {
+    background-color: #f0f0f0;
+    color: var(--blue-links);
+}
+
+/* Bottom Navbar */
+.bottom-navbar {
+    background-color: var(--white-bg);
+    padding: 10px 0;
+    font-size: 0.95em;
+    border-top: 1px solid var(--light-grey-border);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    min-height: 50px; /* Consistent height */
+}
+
+.bottom-navbar .container-fluid {
+    justify-content: flex-start;
+}
+
+.bottom-navbar .navbar-nav .nav-link {
+    color: var(--dark-text);
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem; /* Bootstrap default padding for nav-links */
+}
+
+.bottom-navbar .navbar-nav .nav-link:hover {
+    color: var(--blue-links);
+}
+
+.bottom-navbar .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bottom-navbar .dropdown-toggle i {
+    font-size: 0.7em;
+}
+
+/* Ensure dropdown menu is styled */
+.bottom-navbar .dropdown-menu {
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 1px solid var(--light-grey-border);
+}
+
+.bottom-navbar .dropdown-item {
+    color: var(--dark-text);
+    font-weight: normal;
+    padding: 8px 15px;
+}
+
+.bottom-navbar .dropdown-item:hover {
+    background-color: var(--blue-links);
+    color: var(--white-text);
+}
+
+/* --- New Section Styles: Firma Gob Inclusion & FAQ --- */
+.firma-gob-section {
+    background-color: var(--white-bg);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.firma-gob-section .quality-statement {
+    color: var(--green-check);
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 50px;
+}
+
+.firma-gob-section .quality-statement i {
+    font-size: 1.4em;
+    margin-right: 8px;
+}
+
+.where-to-include-firma-gob-section {
+    background-color: var(--light-blue-section-bg); /* Use new lighter blue variable */ /* */
+    color: var(--white-text); /* Ensure text is white */ /* */
+    border-radius: 27px; /* Apply border-radius */ /* */
+    position: relative;
+    overflow: hidden;
+    padding: 50px 30px; /* Adjust padding for visual spacing */ /* */
+    max-width: 950px; /* Adjust max-width to "move" slightly left by reducing width and centering */ /* */
+    margin-left: auto; /* Re-center after max-width adjustment */ /* */
+    margin-right: auto; /* Re-center after max-width adjustment */ /* */
+    transform: translateX(-20px); /* Move slightly to the left */ /* */
+}
+
+.where-to-include-firma-gob-section .custom-container-inner {
+    max-width: 1000px; /* Slightly smaller container for this section content */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.where-to-include-firma-gob-section .section-title-light {
+    color: var(--white-text);
+    font-size: 1.8em; /* Slightly smaller text */ /* */
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.where-to-include-firma-gob-section .icon-text-item {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.where-to-include-firma-gob-section .icon-text-item i {
+    font-size: 1.8em;
+    color: var(--white-text);
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.where-to-include-firma-gob-section .woman-laptop-img {
+    max-height: 300px; /* Adjust height of the image */
+    width: auto;
+    object-fit: contain;
+}
+
+.faq-accordion .accordion-item {
+    margin-bottom: 15px;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-accordion .accordion-header .accordion-button {
+    background-color: var(--white-bg);
+    color: var(--dark-text);
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 18px 25px;
+    border: none;
+    box-shadow: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.faq-accordion .accordion-header .accordion-button:not(.collapsed) {
+    background-color: var(--blue-navbar-bg); /* Blue background when open */
+    color: var(--white-text); /* White text when open */
+    border-bottom: 1px solid var(--light-grey-border);
+    border-radius: 8px 8px 0 0;
+}
+
+.faq-accordion .accordion-header .accordion-button::after {
+    filter: invert(0); /* Ensure arrow is visible */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    /* Custom arrow for collapsed state */
+}
+
+.faq-accordion .accordion-header .accordion-button:not(.collapsed)::after {
+    filter: invert(1) grayscale(100%) brightness(200%); /* White arrow for open state */
+}
+
+.faq-accordion .accordion-body {
+    background-color: var(--white-bg);
+    padding: 20px 25px;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--dark-text);
+}
+
+
+/* Policies Section */
+.policies-section {
+    background-color: var(--white-bg);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.policies-section .custom-container {
+    flex-direction: column;
+    height: auto;
+}
+
+.section-subtitle {
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: var(--section-subtitle-color);
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 2.2em;
+    color: var(--blue-links);
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.policies-section .policy-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    padding: 20px 30px;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 10px;
+    background-color: var(--white-bg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin: 0 auto;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.policies-section .policy-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.policies-section .policy-card span {
+    font-size: 1.1em;
+    color: var(--dark-text);
+}
+
+.policies-section .policy-card i {
+    color: var(--blue-links);
+    font-size: 1.2em;
+}
+
+/* --- Footer Styles --- */
+.footer {
+    background-color: var(--dark-blue-footer);
+    color: var(--white-text);
+    font-size: 0.9em;
+}
+
+.footer-top {
+    border-bottom: 1px solid var(--light-border-dark);
+}
+
+.footer-col {
+    color: var(--white-text);
+}
+
+.footer-col.logo-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-firma-gob-logo,
+.footer-ogtic-logo,
+.footer-gobierno-digital-logo {
+    max-width: 180px; /* Example max-width, adjust as per images */
+    height: auto;
+}
+
+.footer h4 {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--white-text);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: var(--medium-grey-footer-text);
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: var(--white-text);
+}
+
+.footer p {
+    color: var(--medium-grey-footer-text);
+    line-height: 1.5;
+}
+
+.footer-middle {
+    background-color: var(--white-bg);
+    border-top: 1px solid var(--light-grey-border);
+    border-bottom: 1px solid var(--light-grey-border);
+}
+
+.certificates-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Flexible grid for logos */
+    gap: 10px;
+    align-items: center;
+    flex-grow: 1;
+    margin-right: 20px; /* Space between grid and right logos */
+}
+
+.certificate-img {
+    max-width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center individual images in grid cells */
+}
+
+.logos-right {
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.right-logo {
+    max-width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-bottom {
+    background-color: var(--footer-bottom-bg);
+    color: var(--dark-text);
+    font-size: 0.85em;
+}
+
+.footer-bottom .container-fluid {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.inline-ogtic-logo {
+    height: 18px; /* Adjust height to match text line height */
+    width: auto;
+    vertical-align: middle;
+}
+
+.social-links {
+    color: var(--dark-text);
+}
+
+.social-links span {
+    font-weight: bold;
+}
+
+.social-links a {
+    color: var(--dark-text);
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--blue-links);
+}
+
+
+/* --- Floating Buttons --- */
+.floating-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.floating-buttons .chat-btn,
+.floating-buttons .scroll-up-btn {
+    background-color: var(--blue-links);
+    color: var(--white-text);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.floating-buttons .chat-btn:hover,
+.floating-buttons .scroll-up-btn:hover {
+    background-color: var(--blue-hover);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1199.98px) { /* For large devices, adjust container for smaller screens */
+    .custom-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 991.98px) { /* Medium devices (tablets) */
+    .top-navbar .container-fluid,
+    .main-navbar .container-fluid,
+    .bottom-navbar .container-fluid,
+    .policies-section .custom-container,
+    .firma-gob-section .custom-container, /* Added for new section */
+    .footer .custom-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Navbar adjustments */
+    .top-navbar .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    .top-navbar .how-we-know {
+        margin-left: 0 !important;
+        margin-top: 5px;
+    }
+
+    .main-navbar .navbar-brand {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .main-navbar .firma-gob-logo,
+    .main-navbar .ogtic-logo {
+        margin-right: 0 !important;
+    }
+
+    .main-navbar .navbar-toggler {
+        margin-top: 10px; /* Space for toggler */
+    }
+
+    .main-navbar .search-bar-container {
+        order: 3; /* Push search bar below logos on smaller screens */
+        width: 100%;
+        margin: 15px 0;
+    }
+    .main-navbar .search-bar {
+        max-width: 100%; /* Full width for search bar */
+        margin: 0;
+    }
+
+    .main-navbar .navbar-nav.d-flex.flex-row {
+        flex-direction: column !important; /* Stack icons vertically */
+        width: 100%;
+        align-items: center;
+        margin-top: 15px;
+    }
+    .main-navbar .nav-icon-link,
+    .main-navbar .contact-button {
+        margin: 5px 0 !important; /* Adjust margins for stacked items */
+        padding: 8px 15px; /* Give them more clickable area */
+        width: auto;
+    }
+    .main-navbar .nav-icon-link::before,
+    .main-navbar .contact-button::before {
+        content: none; /* Remove vertical dividers */
+    }
+    .main-navbar .contact-button {
+        border: 1px solid var(--blue-links); /* Add border back if removed by previous CSS */
+    }
+
+    .bottom-navbar .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .bottom-navbar .navbar-nav .nav-link {
+        padding: 8px 0;
+    }
+
+    /* New Section: Firma Gob Inclusion & FAQ */
+    .where-to-include-firma-gob-section {
+        padding: 40px 20px;
+        transform: translateX(0); /* Remove left shift on smaller screens */
+        max-width: 100%; /* Adjust width for mobile */
+    }
+    .where-to-include-firma-gob-section .row {
+        flex-direction: column-reverse; /* Put image above text on small screens */
+    }
+    .where-to-include-firma-gob-section .woman-laptop-img {
+        margin-bottom: 30px;
+    }
+    .where-to-include-firma-gob-section .icon-text-item {
+        justify-content: center !important; /* Center icons on mobile */
+    }
+    .faq-accordion .accordion-header .accordion-button {
+        font-size: 1em;
+    }
+
+    /* Policies Section */
+    .policies-section .policy-card {
+        padding: 15px 20px;
+    }
+
+    /* Footer */
+    .footer .footer-top .row > div {
+        text-align: center;
+    }
+    .footer-col.logo-col {
+        align-items: center;
+    }
+    .footer-firma-gob-logo,
+    .footer-ogtic-logo,
+    .footer-gobierno-digital-logo {
+        margin: 0 auto 15px auto;
+    }
+    .footer-middle .certificates-container {
+        flex-direction: column;
+    }
+    .certificates-grid {
+        grid-template-columns: repeat(3, 1fr); /* More compact for mobile */
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .logos-right {
+        justify-content: center;
+        width: 100%;
+    }
+    .footer-bottom .container-fluid {
+        flex-direction: column;
+    }
+    .social-links {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 767.98px) { /* Small devices (landscape phones, less than 768px) */
+    .policies-section .section-title,
+    .firma-gob-section .section-title {
+        font-size: 1.8em;
+    }
+    .firma-gob-section .quality-statement {
+        font-size: 1em;
+    }
+    .where-to-include-firma-gob-section .section-title-light {
+        font-size: 1.6em; /* Adjusted for this breakpoint */ /* */
+    }
+    .where-to-include-firma-gob-section .icon-text-item {
+        font-size: 1em;
+    }
+    .where-to-include-firma-gob-section .icon-text-item i {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 575.98px) { /* Extra small devices (portrait phones, less than 576px) */
+    body {
+        font-size: 0.9em;
+    }
+    .top-navbar {
+        font-size: 0.75em;
+        padding: 8px 0;
+    }
+    .main-navbar {
+        padding: 10px 0;
+    }
+    .main-navbar .firma-gob-logo {
+        max-width: 120px;
+    }
+    .main-navbar .ogtic-logo {
+        max-width: 70px;
+    }
+    .main-navbar .search-bar .form-control {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+    .main-navbar .search-bar .search-btn {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+    .main-navbar .nav-icon-link {
+        font-size: 1.1em;
+    }
+    .main-navbar .contact-button {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+    .bottom-navbar {
+        font-size: 0.85em;
+        padding: 8px 0;
+    }
+    .policies-section .section-title,
+    .firma-gob-section .section-title {
+        font-size: 1.5em;
+    }
+    .where-to-include-firma-gob-section .section-title-light {
+        font-size: 1.4em; /* Adjusted for this breakpoint */ /* */
+    }
+    .where-to-include-firma-gob-section .icon-text-item {
+        font-size: 0.9em;
+        flex-direction: column;
+        text-align: center;
+    }
+    .where-to-include-firma-gob-section .icon-text-item i {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    .faq-accordion .accordion-header .accordion-button {
+        font-size: 0.9em;
+        padding: 15px 20px;
+    }
+    .footer h4 {
+        font-size: 0.9em;
+    }
+    .footer ul li a, .footer p {
+        font-size: 0.85em;
+    }
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr); /* More compact for very small screens */
+    }
+    .right-logo {
+        max-width: 80px;
+    }
+    .footer-bottom p, .social-links {
+        font-size: 0.75em;
+    }
+}
